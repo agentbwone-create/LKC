@@ -14,28 +14,4 @@ cmds = [
 cmd = 'python manage.py createsuperuser --noinput --username admin --email admin@gmail.com; gunicorn lkc_school.wsgi:application --bind 0.0.0.0:8000 --workers 2 --timeout 120'
 ```
 
-5. Commit the changes
 
-## **Step 2: Add Environment Variable in Railway**
-
-1. Go to Railway dashboard
-2. Click on your **web** service
-3. Click on **Variables** tab
-4. Click **+ New Variable**
-5. Add:
-   - **Variable:** `DJANGO_SUPERUSER_PASSWORD`
-   - **Value:** `123` (or choose a more secure password!)
-
-6. Click **Add**
-
-## **Step 3: Redeploy**
-
-Railway will automatically redeploy after you commit the nixpacks.toml changes. The superuser will be created during startup.
-
----
-
-## **Step 4: Test Login**
-
-Once deployed, go to:
-```
-http://web-production-78677.up.railway.app/admin/
