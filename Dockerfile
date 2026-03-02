@@ -22,11 +22,11 @@ RUN pip install -r requirements.txt
 # Copy project
 COPY . .
 
-# Collect static files
-RUN python manage.py collectstatic --noinput || true
-
 # Make start script executable
 RUN chmod +x start.sh
+
+# Collect static files
+RUN python manage.py collectstatic --noinput || true
 
 # Expose port
 EXPOSE 8000
