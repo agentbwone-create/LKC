@@ -25,5 +25,8 @@ COPY . .
 # Collect static files
 RUN python manage.py collectstatic --noinput || true
 
+# Make start script executable
+RUN chmod +x start.sh
+
 # Expose port
 EXPOSE 8000
