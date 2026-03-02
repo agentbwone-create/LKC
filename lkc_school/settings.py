@@ -24,7 +24,7 @@ INSTALLED_APPS = [
     'apps.parents',
     'apps.exams',
     'apps.attendance',
-    'apps.reports',
+   # 'apps.reports',
     'apps.assignments',
 ]
 
