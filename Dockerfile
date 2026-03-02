@@ -27,6 +27,3 @@ RUN python manage.py collectstatic --noinput || true
 
 # Expose port
 EXPOSE 8000
-
-# Run gunicorn
-
