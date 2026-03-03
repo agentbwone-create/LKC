@@ -1,0 +1,22 @@
+[Unit]
+Description=LKC School Management - Gunicorn
+After=network.target
+
+[Service]
+User=www-data
+Group=www-data
+WorkingDirectory=/var/www/lkc_school
+Environment="DJANGO_SETTINGS_MODULE=lkc_school.settings"
+ExecStart=/var/www/lkc_school/venv/bin/gunicorn \
+    --workers 4 \
+    --worker-class sync \
+    --bind 127.0.0.1:8000 \
+    --timeout 60 \
+    --access-logfile /var/log/lkc_school/access.log \
+    --error-logfile /var/log/lkc_school/error.log \
+    lkc_school.wsgi:application
+Restart=always
+RestartSec=3
+
+[Install]
+WantedBy=multi-user.target
