@@ -1,4 +1,5 @@
 from pathlib import Path
+import dj_database_url
 import os
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -67,7 +68,7 @@ TEMPLATES = [
 ]
 
 # Database: auto-switches between PostgreSQL (Railway) and SQLite (local)
-DATABASE_URL = os.environ.get('DATABASE_URL', '')
+DATABASE_URL="postgresql://postgres.cgpjmhjgvcilzfimeics:arora119@2233@aws-1-ap-southeast-2.pooler.supabase.com:6543/postgres"
 if DATABASE_URL:
     import dj_database_url
     DATABASES = {'default': dj_database_url.parse(DATABASE_URL, conn_max_age=600)}
