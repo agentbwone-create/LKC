@@ -18,6 +18,8 @@ class ExamViewSet(viewsets.ModelViewSet):
             qs = qs.filter(state=params['state'])
         if params.get('form'):
             qs = qs.filter(form_id=params['form'])
+        if params.get('division'):
+            qs = qs.filter(division_id=params['division'])
         if params.get('academic_year'):
             qs = qs.filter(academic_year_id=params['academic_year'])
         return qs
