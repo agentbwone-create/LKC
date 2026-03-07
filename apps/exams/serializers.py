@@ -4,12 +4,16 @@ from .models import Exam, ExamResult
 
 class ExamSerializer(serializers.ModelSerializer):
     form_name = serializers.CharField(source='form.name', read_only=True)
+    division_name = serializers.SerializerMethodField()
     academic_year_name = serializers.CharField(source='academic_year.name', read_only=True)
     result_count = serializers.IntegerField(read_only=True)
 
     class Meta:
         model = Exam
         fields = '__all__'
+
+    def get_division_name(self, obj):
+        return str(obj.division) if obj.division else ''
 
 
 class ExamResultSerializer(serializers.ModelSerializer):
